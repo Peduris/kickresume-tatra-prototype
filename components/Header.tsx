@@ -41,7 +41,7 @@ export default function Header() {
 
           {/* Right: CTA Button */}
           <Link
-            href="/"
+            href="/positions"
             className="bg-[#F5E6D3] text-[#212121] px-4 py-2 rounded font-medium hover:bg-[#E8D4B8] transition-colors text-sm"
           >
             Voľné pozície
