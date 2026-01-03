@@ -19,7 +19,7 @@ export default function CareerCoachCard({ onAnalyzeClick, hasAnalyzed }: CareerC
       <div className="flex items-center space-x-2 mb-3">
         <Sparkles className="w-5 h-5 text-kickresume-teal" />
         <h2 className="text-xl font-bold text-tatra-black">
-          Prirodzene najlepší Career Coach
+          Prirodzene najlepší Kariérny Poradca
         </h2>
       </div>
       

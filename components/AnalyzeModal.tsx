@@ -135,7 +135,7 @@ export default function AnalyzeModal({
                           <div className="flex flex-col items-center justify-center pt-5 pb-6">
                             <Upload className="w-8 h-8 mb-2 text-tatra-gray" />
                             <p className="mb-2 text-sm text-tatra-gray">
-                              <span className="font-semibold">Click to upload</span> or drag and drop
+                              <span className="font-semibold">Klikni na nahratie</span> alebo presuň súbor
                             </p>
                             <p className="text-xs text-tatra-gray">PDF, DOC, DOCX (MAX. 5MB)</p>
                           </div>
@@ -148,7 +148,7 @@ export default function AnalyzeModal({
                         </label>
                         {file && (
                           <p className="mt-2 text-sm text-tatra-gray">
-                            Selected: {file.name}
+                            Vybraté: {file.name}
                           </p>
                         )}
                       </div>
@@ -158,7 +158,7 @@ export default function AnalyzeModal({
                           <div className="w-full border-t border-gray-300" />
                         </div>
                         <div className="relative flex justify-center text-sm">
-                          <span className="px-2 bg-white text-tatra-gray">OR</span>
+                          <span className="px-2 bg-white text-tatra-gray">ALEBO</span>
                         </div>
                       </div>
 
@@ -170,7 +170,7 @@ export default function AnalyzeModal({
                           <LinkIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-tatra-gray" />
                           <input
                             type="text"
-                            placeholder="https://linkedin.com/in/yourprofile"
+                            placeholder="https://linkedin.com/in/tvojprofil"
                             value={linkedInUrl}
                             onChange={(e) => setLinkedInUrl(e.target.value)}
                             className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-tatra-blue focus:border-transparent"
