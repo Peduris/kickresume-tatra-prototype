@@ -28,7 +28,7 @@ export default function Header() {
               </div>
             ) : (
               <Image
-                src="/logo.png"
+                src="/TBlogo.png"
                 alt="Tatra Banka Logo"
                 width={120}
                 height={40}
