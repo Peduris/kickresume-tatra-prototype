@@ -33,9 +33,15 @@ export default function LandingView({ onAnalyzeClick, onBrowseClick }: LandingVi
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            <h1 className="text-6xl md:text-7xl font-bold text-white leading-tight">
-              Buď prirodzene najlepší kandidát.
-            </h1>
+            <div className="space-y-4">
+              <h1 className="text-6xl md:text-7xl font-bold text-white leading-tight">
+                Buď prirodzene najlepší kandidát.
+              </h1>
+              
+              <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
+                Nehľadaj si prácu, my ti ju nájdem. Náš AI kariérny asistent analyzuje tvoj profil alebo životopis a pomôže ti navrhnúť tvoju kariéru.
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <motion.button
@@ -69,23 +75,35 @@ export default function LandingView({ onAnalyzeClick, onBrowseClick }: LandingVi
             <div className="relative w-full h-full">
               {/* Top-right image */}
               <div className="absolute top-0 right-0 w-64 h-80 rounded-lg overflow-hidden shadow-2xl z-30">
-                <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                  <span className="text-white/50 text-sm">Professional Image 1</span>
-                </div>
+                <Image
+                  src="/picture1.png"
+                  alt="Professional team"
+                  width={256}
+                  height={320}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Middle-left image */}
               <div className="absolute top-32 left-0 w-64 h-80 rounded-lg overflow-hidden shadow-2xl z-20">
-                <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
-                  <span className="text-white/50 text-sm">Professional Image 2</span>
-                </div>
+                <Image
+                  src="/picture2.png"
+                  alt="Workplace collaboration"
+                  width={256}
+                  height={320}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Bottom-left image */}
               <div className="absolute bottom-0 left-16 w-64 h-80 rounded-lg overflow-hidden shadow-2xl z-10">
-                <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                  <span className="text-white/50 text-sm">Professional Image 3</span>
-                </div>
+                <Image
+                  src="/picture3.jpg"
+                  alt="Professional environment"
+                  width={256}
+                  height={320}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </motion.div>
