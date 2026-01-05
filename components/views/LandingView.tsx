@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, FileText, TrendingUp, Target } from "lucide-react";
+import Image from "next/image";
 
 interface LandingViewProps {
   onAnalyzeClick: () => void;
@@ -15,100 +15,82 @@ export default function LandingView({ onAnalyzeClick, onBrowseClick }: LandingVi
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="min-h-[calc(100vh-80px)] flex flex-col"
+      className="min-h-[calc(100vh-80px)] bg-[#212121] relative overflow-hidden"
     >
-      <main className="flex-1 max-w-6xl mx-auto px-6 py-16 w-full">
-        {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
-          <h1 className="text-6xl md:text-7xl font-bold text-tatra-black mb-6 leading-tight">
-            Buď prirodzene najlepší kandidát.
-          </h1>
-          
-          <p className="text-2xl text-tatra-gray max-w-3xl mx-auto leading-relaxed mb-12">
-            Nehľadajte prácu. Nechajte AI nájsť tú dokonalú pre vás.
-          </p>
+      {/* Background decorative lines */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/4 left-0 w-full h-px bg-gray-400 transform -skew-y-12"></div>
+        <div className="absolute top-1/2 left-0 w-full h-px bg-gray-400 transform -skew-y-12"></div>
+        <div className="absolute top-3/4 left-0 w-full h-px bg-gray-400 transform -skew-y-12"></div>
+      </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={onAnalyzeClick}
-              className="bg-tatra-blue text-white px-12 py-6 rounded-lg font-bold text-xl shadow-lg hover:bg-opacity-90 transition-all flex items-center space-x-3"
-            >
-              <span>Analyzovať moje CV</span>
-              <ArrowRight className="w-6 h-6" />
-            </motion.button>
+      <main className="relative z-10 max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 items-center min-h-[calc(100vh-200px)]">
+          {/* Left Section: Text and Buttons */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            <h1 className="text-6xl md:text-7xl font-bold text-white leading-tight">
+              Buď prirodzene najlepší kandidát.
+            </h1>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={onBrowseClick}
-              className="bg-transparent border-2 border-tatra-gray text-tatra-gray px-12 py-6 rounded-lg font-bold text-xl hover:bg-gray-50 transition-all"
-            >
-              Len prezerať pozície
-            </motion.button>
-          </div>
-        </motion.div>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={onAnalyzeClick}
+                className="bg-[#F5E6D3] text-[#212121] px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-[#E8D4B8] transition-all"
+              >
+                Analyzovať životopis
+              </motion.button>
 
-        {/* Benefits Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid md:grid-cols-3 gap-8 mt-20"
-        >
-          <div className="text-center p-6">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-tatra-blue/10 rounded-full mb-6">
-              <TrendingUp className="w-10 h-10 text-tatra-blue" />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={onBrowseClick}
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-all"
+              >
+                Zobraziť všetky otvorené pozície
+              </motion.button>
             </div>
-            <h3 className="text-2xl font-bold text-tatra-black mb-3">
-              Správna zhoda
-            </h3>
-            <p className="text-tatra-gray leading-relaxed">
-              AI nájde pozície, ktoré skutočne zodpovedajú vašim zručnostiam a skúsenostiam
-            </p>
-          </div>
+          </motion.div>
 
-          <div className="text-center p-6">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-kickresume-teal/10 rounded-full mb-6">
-              <FileText className="w-10 h-10 text-kickresume-teal" />
+          {/* Right Section: Images */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative h-[600px] hidden lg:block"
+          >
+            {/* Image collage - overlapping images */}
+            <div className="relative w-full h-full">
+              {/* Top-right image */}
+              <div className="absolute top-0 right-0 w-64 h-80 rounded-lg overflow-hidden shadow-2xl z-30">
+                <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+                  <span className="text-white/50 text-sm">Professional Image 1</span>
+                </div>
+              </div>
+
+              {/* Middle-left image */}
+              <div className="absolute top-32 left-0 w-64 h-80 rounded-lg overflow-hidden shadow-2xl z-20">
+                <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
+                  <span className="text-white/50 text-sm">Professional Image 2</span>
+                </div>
+              </div>
+
+              {/* Bottom-left image */}
+              <div className="absolute bottom-0 left-16 w-64 h-80 rounded-lg overflow-hidden shadow-2xl z-10">
+                <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+                  <span className="text-white/50 text-sm">Professional Image 3</span>
+                </div>
+              </div>
             </div>
-            <h3 className="text-2xl font-bold text-tatra-black mb-3">
-              Konštruktívna spätná väzba
-            </h3>
-            <p className="text-tatra-gray leading-relaxed">
-              Získajte konkrétne odporúčania, čo zlepšiť vo vašom CV a profil
-            </p>
-          </div>
-
-          <div className="text-center p-6">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-tatra-blue/10 rounded-full mb-6">
-              <Target className="w-10 h-10 text-tatra-blue" />
-            </div>
-            <h3 className="text-2xl font-bold text-tatra-black mb-3">
-              Rozvoj zručností
-            </h3>
-            <p className="text-tatra-gray leading-relaxed">
-              Odporúčania na kurzy a certifikácie, ktoré zvýšia vašu hodnotu na trhu
-            </p>
-          </div>
-        </motion.div>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t border-gray-200 py-6 mt-auto">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-center text-tatra-gray text-sm">
-            © 2025 Tatra Banka. Powered by <span className="font-semibold text-kickresume-teal">Kickresume</span>
-          </p>
+          </motion.div>
         </div>
-      </footer>
+      </main>
     </motion.div>
   );
 }
-

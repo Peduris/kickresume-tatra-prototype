@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import TatraBankaLogo from "./TatraBankaLogo";
+import Image from "next/image";
 
 export default function Header() {
   return (
@@ -10,7 +10,36 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Left: Logo and Hashtag */}
           <div className="flex items-center space-x-3">
-            <TatraBankaLogo />
+            <div className="h-10 flex items-center">
+              <Image
+                src="/logo.png"
+                alt="Tatra Banka Logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+                priority
+                onError={(e) => {
+                  // Fallback: show text logo if image fails to load
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  if (target.parentElement) {
+                    target.parentElement.innerHTML = `
+                      <div class="flex items-end space-x-1 border border-white px-2 py-1">
+                        <div class="flex items-end space-x-1">
+                          <div class="w-0.5 bg-white" style="height: 12px; transform: skewY(-2deg);"></div>
+                          <div class="w-0.5 bg-white" style="height: 16px; transform: skewY(-2deg);"></div>
+                          <div class="w-0.5 bg-white" style="height: 20px; transform: skewY(-2deg);"></div>
+                        </div>
+                        <span class="text-white font-bold italic text-lg ml-2">TB</span>
+                      </div>
+                      <div class="ml-1">
+                        <div class="text-white text-sm font-bold uppercase">TATRA BANKA</div>
+                      </div>
+                    `;
+                  }
+                }}
+              />
+            </div>
             <span className="text-white text-sm">#prirodzenenajlepsi</span>
           </div>
 

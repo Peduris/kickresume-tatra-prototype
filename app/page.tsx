@@ -36,7 +36,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`min-h-screen ${currentView === "LANDING" ? "bg-[#212121]" : "bg-white"}`}>
       <Header />
       
       <AnimatePresence mode="wait">
