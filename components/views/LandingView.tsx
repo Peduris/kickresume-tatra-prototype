@@ -35,11 +35,11 @@ export default function LandingView({ onAnalyzeClick, onBrowseClick }: LandingVi
           >
             <div className="space-y-4">
               <h1 className="text-6xl md:text-7xl font-bold text-white leading-tight">
-                Buď prirodzene najlepší kandidát.
+                Buď prirodzene najlepší na tej správnej pozícii.
               </h1>
               
               <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-                Nehľadaj si prácu, my ti ju nájdem. Náš AI kariérny asistent analyzuje tvoj profil alebo životopis a pomôže ti navrhnúť tvoju kariéru.
+                Nehľadaj len prácu, objav svoju kariéru. Náš AI asistent okamžite analyzuje tvoj profil, nájde dokonalú zhodu v tíme Tatra Banky a poradí ti, ako svoje šance ešte zvýšiť.
               </p>
             </div>
 
