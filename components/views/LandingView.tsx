@@ -34,11 +34,11 @@ export default function LandingView({ onAnalyzeClick, onBrowseClick }: LandingVi
             className="space-y-8"
           >
             <div className="space-y-4">
-              <h1 className="text-6xl md:text-7xl font-bold text-white leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 Buď prirodzene najlepší na tej správnej pozícii.
               </h1>
               
-              <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
+              <p className="text-lg text-gray-300 leading-relaxed max-w-2xl">
                 Nehľadaj len prácu, objav svoju kariéru. Náš AI asistent okamžite analyzuje tvoj profil, nájde dokonalú zhodu v tíme Tatra Banky a poradí ti, ako svoje šance ešte zvýšiť.
               </p>
             </div>
