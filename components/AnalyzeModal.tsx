@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 interface AnalyzeModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAnalysisComplete: () => void;
+  onAnalysisComplete: (fileName: string) => void;
 }
 
 type AnalysisState = "input" | "loading" | "complete";
@@ -52,7 +52,8 @@ export default function AnalyzeModal({
         setState("complete");
         setProgress(100);
         setTimeout(() => {
-          onAnalysisComplete();
+          const fileName = file?.name || linkedInUrl || "CV.pdf";
+          onAnalysisComplete(fileName);
           handleClose();
         }, 500);
       }, 10000);

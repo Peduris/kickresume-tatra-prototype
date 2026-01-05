@@ -3,6 +3,8 @@ export interface Job {
   title: string;
   location: string;
   salary: string;
+  department?: string;
+  publishedDate?: string;
   matchScore: number;
   matchedSkills: string[];
   missingSkills: string[];
@@ -16,6 +18,8 @@ export const jobs: Job[] = [
     title: "Senior Java Developer",
     location: "Bratislava",
     salary: "3 500 €",
+    department: "IT & Technológie",
+    publishedDate: "15. 12. 2024",
     matchScore: 72,
     matchedSkills: ["Java", "Spring Boot", "SQL", "Agile"],
     missingSkills: ["Kubernetes", "Microservices"],
@@ -27,6 +31,8 @@ export const jobs: Job[] = [
     title: "Dátový Analytik",
     location: "Bratislava",
     salary: "2 800 €",
+    department: "Dátová analýza",
+    publishedDate: "20. 12. 2024",
     matchScore: 98,
     matchedSkills: ["Python", "SQL", "Vizualizácia dát", "Excel"],
     missingSkills: ["Pokročilý PowerBI"],
@@ -38,6 +44,8 @@ export const jobs: Job[] = [
     title: "Súkromný Bankár",
     location: "Bratislava",
     salary: "3 200 €",
+    department: "Súkromné bankovníctvo",
+    publishedDate: "10. 12. 2024",
     matchScore: 45,
     matchedSkills: ["Zákaznícky servis", "Finančné produkty"],
     missingSkills: ["Certifikovaný Finančný Poradca", "Skúsenosť so súkromným bankovníctvom"],
@@ -49,6 +57,8 @@ export const jobs: Job[] = [
     title: "Stážista - Rizikový Manažment",
     location: "Košice",
     salary: "1 800 €",
+    department: "Rizikový manažment",
+    publishedDate: "5. 12. 2024",
     matchScore: 65,
     matchedSkills: ["Analytické zručnosti", "Excel", "Matematika"],
     missingSkills: ["Modelovanie rizík", "FRM Certifikácia"],
@@ -60,6 +70,8 @@ export const jobs: Job[] = [
     title: "Produktový Account Manager - Malé Podnikanie",
     location: "Bratislava",
     salary: "2 900 €",
+    department: "Obchod a rozvoj",
+    publishedDate: "18. 12. 2024",
     matchScore: 58,
     matchedSkills: ["Správa účtov", "Komunikácia"],
     missingSkills: ["Bankovníctvo pre malé podnikanie", "Predajný tréning"],
