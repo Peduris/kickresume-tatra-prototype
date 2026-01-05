@@ -3,9 +3,24 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-export default function Header() {
+interface HeaderProps {
+  onLogoClick?: () => void;
+}
+
+export default function Header({ onLogoClick }: HeaderProps) {
   const [logoError, setLogoError] = useState(false);
+  const router = useRouter();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onLogoClick) {
+      onLogoClick();
+    } else {
+      router.push("/");
+    }
+  };
 
   return (
     <header className="bg-[#212121] sticky top-0 z-50">
@@ -13,30 +28,36 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Left: Logo and Hashtag */}
           <div className="flex items-center space-x-3">
-            {logoError ? (
-              // Fallback logo if image fails to load
-              <div className="flex flex-col">
-                <div className="border border-white px-2 py-1 flex items-end space-x-2 mb-1">
-                  <div className="flex items-end space-x-1">
-                    <div className="w-0.5 bg-white" style={{ height: "12px", transform: "skewY(-2deg)" }} />
-                    <div className="w-0.5 bg-white" style={{ height: "16px", transform: "skewY(-2deg)" }} />
-                    <div className="w-0.5 bg-white" style={{ height: "20px", transform: "skewY(-2deg)" }} />
+            <a 
+              href="/" 
+              onClick={handleLogoClick}
+              className="cursor-pointer hover:opacity-80 transition-opacity"
+            >
+              {logoError ? (
+                // Fallback logo if image fails to load
+                <div className="flex flex-col">
+                  <div className="border border-white px-2 py-1 flex items-end space-x-2 mb-1">
+                    <div className="flex items-end space-x-1">
+                      <div className="w-0.5 bg-white" style={{ height: "12px", transform: "skewY(-2deg)" }} />
+                      <div className="w-0.5 bg-white" style={{ height: "16px", transform: "skewY(-2deg)" }} />
+                      <div className="w-0.5 bg-white" style={{ height: "20px", transform: "skewY(-2deg)" }} />
+                    </div>
+                    <span className="text-white font-bold italic text-lg">TB</span>
                   </div>
-                  <span className="text-white font-bold italic text-lg">TB</span>
+                  <div className="text-white text-xs font-bold uppercase">TATRA BANKA</div>
                 </div>
-                <div className="text-white text-xs font-bold uppercase">TATRA BANKA</div>
-              </div>
-            ) : (
-              <Image
-                src="/TBlogo.png"
-                alt="Tatra Banka Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-                priority
-                onError={() => setLogoError(true)}
-              />
-            )}
+              ) : (
+                <Image
+                  src="/TBlogo.png"
+                  alt="Tatra Banka Logo"
+                  width={120}
+                  height={40}
+                  className="h-10 w-auto"
+                  priority
+                  onError={() => setLogoError(true)}
+                />
+              )}
+            </a>
             <span className="text-white text-sm">#prirodzenenajlepsi</span>
           </div>
 

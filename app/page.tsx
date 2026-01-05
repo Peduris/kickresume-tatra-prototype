@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <div className={`min-h-screen ${currentView === "LANDING" ? "bg-[#212121]" : "bg-white"}`}>
-      <Header />
+      <Header onLogoClick={handleReset} />
       
       <AnimatePresence mode="wait">
         {currentView === "LANDING" && (
