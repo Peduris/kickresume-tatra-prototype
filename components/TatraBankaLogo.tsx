@@ -3,25 +3,54 @@
 export default function TatraBankaLogo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex flex-col ${className}`}>
-      <div className="flex items-end space-x-1">
-        {/* Three vertical bars */}
-        <div className="flex items-end space-x-0.5">
-          <div className="w-0.5 bg-white" style={{ height: "10px" }} />
-          <div className="w-0.5 bg-white" style={{ height: "14px" }} />
-          <div className="w-0.5 bg-white" style={{ height: "18px" }} />
+      {/* Graphic element with rectangular outline */}
+      <div className="border border-white px-2 py-1 flex items-end space-x-2 mb-1">
+        {/* Three vertical bars - slightly slanted, increasing height */}
+        <div className="flex items-end space-x-1">
+          <div 
+            className="bg-white" 
+            style={{ 
+              width: "2px", 
+              height: "12px",
+              transform: "skewY(-2deg)"
+            }} 
+          />
+          <div 
+            className="bg-white" 
+            style={{ 
+              width: "2px", 
+              height: "16px",
+              transform: "skewY(-2deg)"
+            }} 
+          />
+          <div 
+            className="bg-white" 
+            style={{ 
+              width: "2px", 
+              height: "20px",
+              transform: "skewY(-2deg)"
+            }} 
+          />
         </div>
         
-        {/* TB text */}
-        <div className="text-white font-bold leading-none ml-1.5">
-          <span className="text-base">T</span>
-          <span className="text-sm">B</span>
+        {/* TB text - bold and italicized */}
+        <div className="text-white font-bold italic leading-none">
+          <span className="text-lg">T</span>
+          <span className="text-base">B</span>
         </div>
       </div>
       
-      {/* TATRA BANKA text below */}
-      <div className="mt-0.5">
-        <span className="text-white text-[10px] font-normal tracking-wide leading-tight">
+      {/* TATRA BANKA text */}
+      <div className="mb-0.5">
+        <span className="text-white text-sm font-bold uppercase tracking-wide leading-tight">
           TATRA BANKA
+        </span>
+      </div>
+      
+      {/* Tagline */}
+      <div>
+        <span className="text-white text-[10px] font-normal leading-tight">
+          Member of Raiffeisen Bank International
         </span>
       </div>
     </div>
