@@ -1,16 +1,32 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Header() {
+  const [logoError, setLogoError] = useState(false);
+
   return (
     <header className="bg-[#212121] sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Left: Logo and Hashtag */}
           <div className="flex items-center space-x-3">
-            <div className="h-10 flex items-center">
+            {logoError ? (
+              // Fallback logo if image fails to load
+              <div className="flex flex-col">
+                <div className="border border-white px-2 py-1 flex items-end space-x-2 mb-1">
+                  <div className="flex items-end space-x-1">
+                    <div className="w-0.5 bg-white" style={{ height: "12px", transform: "skewY(-2deg)" }} />
+                    <div className="w-0.5 bg-white" style={{ height: "16px", transform: "skewY(-2deg)" }} />
+                    <div className="w-0.5 bg-white" style={{ height: "20px", transform: "skewY(-2deg)" }} />
+                  </div>
+                  <span className="text-white font-bold italic text-lg">TB</span>
+                </div>
+                <div className="text-white text-xs font-bold uppercase">TATRA BANKA</div>
+              </div>
+            ) : (
               <Image
                 src="/logo.png"
                 alt="Tatra Banka Logo"
@@ -18,28 +34,9 @@ export default function Header() {
                 height={40}
                 className="h-10 w-auto"
                 priority
-                onError={(e) => {
-                  // Fallback: show text logo if image fails to load
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  if (target.parentElement) {
-                    target.parentElement.innerHTML = `
-                      <div class="flex items-end space-x-1 border border-white px-2 py-1">
-                        <div class="flex items-end space-x-1">
-                          <div class="w-0.5 bg-white" style="height: 12px; transform: skewY(-2deg);"></div>
-                          <div class="w-0.5 bg-white" style="height: 16px; transform: skewY(-2deg);"></div>
-                          <div class="w-0.5 bg-white" style="height: 20px; transform: skewY(-2deg);"></div>
-                        </div>
-                        <span class="text-white font-bold italic text-lg ml-2">TB</span>
-                      </div>
-                      <div class="ml-1">
-                        <div class="text-white text-sm font-bold uppercase">TATRA BANKA</div>
-                      </div>
-                    `;
-                  }
-                }}
+                onError={() => setLogoError(true)}
               />
-            </div>
+            )}
             <span className="text-white text-sm">#prirodzenenajlepsi</span>
           </div>
 
